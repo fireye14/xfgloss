@@ -150,14 +150,34 @@ namespace XFGloss
 			bindable?.SetValue(BackgroundGradientProperty, value);
 		}
 
-		#endregion
+        #endregion
 
-		#region TintColor
-		/// <summary>
-		/// Allows a <see cref="T:Xamarin.Forms.Color"/> value to be specified as the tint color for the accessory view
-		/// (iOS only) and the <see cref="T:Xamarin.Forms.SwitchCell"/> cell type.
-		/// </summary>
-		public static readonly BindableProperty TintColorProperty =
+        #region RippleColor
+        // mwj - add ripple color property
+
+        public static readonly BindableProperty RippleColorProperty = BindableProperty.CreateAttached("RippleColor", typeof(Color), typeof(Cell), Color.Default);
+
+        public static Color GetRippleColor(BindableObject bindable)
+        {
+            return (Color)(bindable?.GetValue(RippleColorProperty) ?? RippleColorProperty.DefaultValue);
+        }
+
+        public static void SetRippleColor(BindableObject bindable, Color value)
+        {
+            bindable?.SetValue(RippleColorProperty, value);
+        }
+
+
+        // mwj - eom
+        #endregion
+
+
+        #region TintColor
+        /// <summary>
+        /// Allows a <see cref="T:Xamarin.Forms.Color"/> value to be specified as the tint color for the accessory view
+        /// (iOS only) and the <see cref="T:Xamarin.Forms.SwitchCell"/> cell type.
+        /// </summary>
+        public static readonly BindableProperty TintColorProperty =
 			BindableProperty.CreateAttached("TintColor", typeof(Color), typeof(Cell), Color.Default);
 
 		/// <summary>
